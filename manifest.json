@@ -1,0 +1,18 @@
+{
+    "version": "1.0",
+    "name": "Reddop - Reddit Opinion Disclaimer",
+    "description": "A tiny extension that appends 'opinion disclaimer' on each Reddit comment",
+    "manifest_version": 2,
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.reddit.com/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "run_at": "document_idle"
+        }
+    ],
+    "permissions": ["activeTab", "<all_urls>"]
+}
