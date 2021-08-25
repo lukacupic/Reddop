@@ -1,11 +1,11 @@
 {
     "version": "0.1",
     "name": "Reddop - Reddit Opinion Disclaimer",
-    "description": "A tiny extension that appends 'opinion disclaimer' on each Reddit comment",
+    "description": "A tiny extension that appends 'opinion disclaimer' at the end of each Reddit comment",
     "icons": {
-        "16": "icon16.png",
-        "48": "icon48.png",
-        "128": "icon128.png"
+        "16": "assets/icon16.png",
+        "48": "assets/icon48.png",
+        "128": "assets/icon128.png"
     },
     "manifest_version": 2,
     "content_scripts": [
