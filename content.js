@@ -1,5 +1,4 @@
 let disclaimer = "Disclaimer: This is my own personal opinion.";
-let disclaimerClass = "hasDisclaimer";
 
 function startWhenReady() {
     document.onreadystatechange = function () {
@@ -16,6 +15,7 @@ function replaceComments() {
         let paragraphs = c.querySelectorAll("p");
         let p = paragraphs[paragraphs.length - 1];
 
+        let disclaimerClass = "hasDisclaimer";
         if (!p.classList.contains(disclaimerClass)) {
             p.innerText = p.innerText + "\n\n" + disclaimer;
             p.classList.add(disclaimerClass);
@@ -27,7 +27,6 @@ function listenForChanges() {
     MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
 
     var observer = new MutationObserver(function (mutations, observer) {
-        // console.log("Replacing comments...");
         replaceComments();
     });
 
