@@ -1,39 +1,39 @@
 let disclaimer = "Disclaimer: This is my own personal opinion.";
 
 function startWhenReady() {
-    document.onreadystatechange = function () {
-        if (document.readyState === 'complete') {
-            replaceComments();
-        }
+  document.onreadystatechange = function () {
+    if (document.readyState === "complete") {
+      replaceComments();
     }
+  };
 }
 
 function replaceComments() {
-    let comments = document.querySelectorAll('[data-test-id="comment"] > div');
-    
-    comments.forEach(function (c) {
-        let paragraphs = c.querySelectorAll("p");
-        let p = paragraphs[paragraphs.length - 1];
+  let comments = document.querySelectorAll('[data-testid="comment"] > div');
 
-        let disclaimerClass = "hasDisclaimer";
-        if (!p.classList.contains(disclaimerClass)) {
-            p.innerText = p.innerText + "\n\n" + disclaimer;
-            p.classList.add(disclaimerClass);
-        }
-    });
+  comments.forEach(function (c) {
+    let paragraphs = c.querySelectorAll("p");
+    let p = paragraphs[paragraphs.length - 1];
+
+    let disclaimerClass = "hasDisclaimer";
+    if (!p.classList.contains(disclaimerClass)) {
+      p.innerText = p.innerText + "\n\n" + disclaimer;
+      p.classList.add(disclaimerClass);
+    }
+  });
 }
 
 function listenForChanges() {
-    MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+  MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
 
-    var observer = new MutationObserver(function (mutations, observer) {
-        replaceComments();
-    });
+  var observer = new MutationObserver(function (mutations, observer) {
+    replaceComments();
+  });
 
-    observer.observe(document, {
-        subtree: true,
-        attributes: true
-    });
+  observer.observe(document, {
+    subtree: true,
+    attributes: true,
+  });
 }
 
 startWhenReady();
