@@ -9,7 +9,7 @@ function startWhenReady() {
 }
 
 function replaceComments() {
-  let comments = document.querySelectorAll('[data-testid="comment"] > div');
+  let comments = document.querySelectorAll('div[id="-post-rtjson-content"]');
 
   comments.forEach(function (c) {
     let paragraphs = c.querySelectorAll("p");
